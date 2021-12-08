@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {                    /* @font face kullanimi */
+  font-family: myFont;
+  src: url(fonts/Montserrat-Regular.ttf);
+}
+
+body {
+  font-family: myFont;
+  color: gray;
+}
+
+/* Main Part - Form */
+input,
+select {
+  border: none;                     /* inputlarin border ve outline kisimlari kaldirlir en distaki dive border verilir boylece icon ile input sanki ayni div icinde olur */
+  outline: none;
+}
+h1 {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: black;
+}
+
+h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+.main {
+  display: flex;
+  max-width: 1000px;
+  margin: auto;
+  gap: 3rem;                         /* Iki display: flex; eleamninin aralarindaki bosluk icin kullanildi */
+}
+.form-row {
+  margin-bottom: 1rem;
+}
+.form-input {
+  border: 1px solid gray;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+
+.input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+::placeholder {                       /* Bu sekilde bir kullanim ile tum placeholderlar demek istedik */
+  padding-left: 0.3rem;
+}
+
+input:focus::placeholder{
+    color: transparent;
+}
+
+.country-post {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.left{
+  flex: 0.4;
+}
+
+.right{
+  flex: 0.6;
+}
+
+#check {
+  font-size: 0.8rem;
+}
+
+#check:hover,
+#country:hover,
+i:hover,
+button:hover{
+  cursor: pointer;
+}
+
+.form {
+  flex: 0.5;                          /* flex grow property */
+}
+.check-out {
+  background: #eeeeee;
+  flex: 0.5;                          /* Aslinda width 50% demek*/
+  border-radius: 1rem;
+  padding: 1.5rem;
+  height: 75vh;
+  border: 1px solid black;
+  box-shadow: 0 0 10px black;
+}
+.card {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 1rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+.card-img {
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+img {
+  width: 150px;
+  object-fit: cover;                  /* Resmin bulundugu div icerisini kaplamasi icin */                                                                               
+  border-radius: 1rem;
+}
+.count {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  width: 100px;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+.count .icon {
+  background: #e0e0e0;
+  padding: 5px;
+  color: black;
+  border-radius: 5px;
+}
+.shipping {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid gray;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.btn {
+  display: block;
+  background-color: #f2994a;
+  margin: 10px auto;
+  padding: 14px 7px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+}
+
+.price {
+  color: #f2994a;
+  font-weight: bold;
+}
+.old-price {
+  text-decoration: line-through;
+  font-size: 0.8rem;
+}
+.card-body > h3 {
+  margin-bottom: 0.3rem;
+}
+
+
+/* Media Queries */
+
+
+@media screen and (max-width: 1000px){
+    .main {
+        margin: 10px;
+    }
+
+    .left{
+        flex: 0.4;
+    }
+
+    .right{
+        flex: 0.6;
+    }
+}
+
+@media screen and (max-width: 840px) {
+
+  .main {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .form {
+    order: 2;                   /* Burada resim kismi responsive lik esnasinda ustte olsun form kismi altta olsun diye order sirasini degistirdik */
+  }
+  .check-out {
+    order: 1;
+  }
+
+  .card-img{
+        margin-right: 30px;
+    }
+
+  h1 {
+    margin: 1rem 0 0;
+  }
+
+  .card{
+        gap: 0;
+    }
+
+    .country-post{
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .card-img{
+        margin-right: 0;
+    }
+
+    .card{
+        flex-direction: column;
+    }
+
+    .card-img{
+        margin: auto;
+    }
+
+    .card-price{
+       border: 1px solid red;
+       text-align: center;
+    }
+
+    .count{
+        margin: 10px auto;
+    }
+}
